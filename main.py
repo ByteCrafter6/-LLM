@@ -1,10 +1,6 @@
-import numpy as np
-import tensorflow as tf
-from tensorflow.keras.models import Seguntial
-from tensorflow.keras.layers import Ebedding,LSTM,Dense
-from tensorflow.keras.prepocessing.text import Tokenizer
-from tensorflow.keras.sequences import pad_sequencing
-text="""
+import random
+from collectins import defaultdict
+train_text="""
 A fost odată ca-n povești,
 A fost ca niciodată,
 Din rude mari împărătești,
@@ -39,3 +35,21 @@ De dorul lui și inima
 În orișicare sară,
 Spre umbra negrului castel
 Când ea o să-i apară."""
+markov_model =defaultdict(lambda:defaultdict(int))
+words =train_text.split()
+#construirea modelului Markov
+for i in  range (len(words)-1):
+    current_word=words[i]
+    next_word=words[i+1]
+    markov_model[current_word][next_word]+=1
+#functia de generare a textului def generate_text(model,length=20);
+current_word=random.choice(list(model.keys()))
+generated_words=[current_word]
+for_in range (lenght)next_words=
+model[current_word]
+if not next_words:
+    break
+next_wor=random.choices(list(next_words.keys()),weights=listst(next_words.values())
+                        k=1)[0]
+generated_words.append(next_words)
+current word=next_word return
